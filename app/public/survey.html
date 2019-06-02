@@ -4,27 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>FriendFinder</title>
-
-    <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome Glyphicons -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
-    <!-- Chosen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
-
 </head>
 
-<style>
-    img {
-       height: 50%;
-       width: 50%;
-    }
-</style>
 
 <body>
 
@@ -32,7 +18,6 @@
 
         <h2>Survey Questions</h2>
         <hr>
-
         <h3>
             <strong>About You</strong>
         </h3>
@@ -143,7 +128,7 @@
         <h3>
             <strong>Question 8</strong>
         </h3>
-        <h4>You feel sympathy for those who are worse off than myself.</h4>
+        <h4>You feel sympathy for those who are worse off than yourself.</h4>
         <select class="chosen-select" id="q8">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -156,7 +141,7 @@
         <h3>
             <strong>Question 9</strong>
         </h3>
-        <h4>You experience my emotions intensely.</h4>
+        <h4>You experience your emotions intensely.</h4>
         <select class="chosen-select" id="q9">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -182,7 +167,6 @@
         <br>
         <br>
 
-        <!-- Submit Button -->
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         Submit</button>
@@ -202,8 +186,6 @@
     <!-- Modal -->
     <div id="results-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -213,13 +195,12 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="https://i.dailymail.co.uk/i/pix/2013/10/17/article-0-18CD752D00000578-601_308x358.jpg" alt="">
+                    <img id="match-img" src="https://i.dailymail.co.uk/i/pix/2013/10/17/article-0-18CD752D00000578-601_308x358.jpg" alt="" height="50%" width="50%">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -282,10 +263,9 @@
                 };
                 // AJAX post the data to the friends API.
                 $.post("/api/friends", userData, function (data) {
-                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
-                    // Show the modal with the best match
+                    // display best match modal
                     $("#results-modal").modal("toggle");
                 });
             } else {
