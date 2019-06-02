@@ -13,7 +13,7 @@ module.exports = function (app) {
         var bestMatch = {
             name: "",
             photo: "",
-            friendDifference: 0
+            scoreDiff: 0
         };
 
         //user info
@@ -34,12 +34,12 @@ module.exports = function (app) {
                 // Finding the difference between the scores 
                 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
                 // If the sum of differences is less then the differences of the current "best match"
-                if (totalDifference <= bestMatch.friendDifference) {
+                if (totalDifference <= bestMatch.scoreDiff) {
 
                     // Reset the bestMatch to be the new friend. 
                     bestMatch.name = friends[i].name;
                     bestMatch.photo = friends[i].photo;
-                    bestMatch.friendDifference = totalDifference;
+                    bestMatch.scoreDiff = totalDifference;
                 }
             }
         }
